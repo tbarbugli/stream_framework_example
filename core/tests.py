@@ -5,7 +5,7 @@ from django.contrib.auth import get_user_model
 from django.core.urlresolvers import reverse
 from django.test.client import Client
 from django.test.testcases import TestCase
-from pinterest_example.core.pin_feedly import feedly
+from core.pin_feedly import feedly
 import json
 import os
 import logging
