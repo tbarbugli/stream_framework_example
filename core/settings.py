@@ -10,11 +10,21 @@ https://docs.djangoproject.com/en/1.6/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+import urlparse
+
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
+# on Heroku redis connection parameters come from environment variables
+redis_url = urlparse.urlparse(os.environ.get('REDISTOGO_URL', 'redis://localhost:6379'))
 
-FEEDLY_CASSANDRA_HOSTS = ['localhost']
-FEEDLY_DISCOVER_CASSANDRA_NODES = True
+FEEDLY_REDIS_CONFIG = {
+    'default': {
+        'host': redis_url.hostname,
+        'port': redis_url.port,
+        'password': redis_url.password,
+        'db': 0
+    },
+}
 
 BASE_ROOT = os.path.abspath(os.path.join(os.path.split(__file__)[0], '..'))
 MEDIA_ROOT = os.path.join(BASE_ROOT, 'media/')
@@ -55,7 +65,8 @@ DEBUG = True
 
 TEMPLATE_DEBUG = True
 
-ALLOWED_HOSTS = []
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+ALLOWED_HOSTS = ['*']
 
 CELERY_ALWAYS_EAGER = True
 CELERY_EAGER_PROPAGATES_EXCEPTIONS = True
@@ -100,8 +111,6 @@ WSGI_APPLICATION = 'core.wsgi.application'
 
 
 # Database
-# https://docs.djangoproject.com/en/1.6/ref/settings/#databases
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',

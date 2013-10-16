@@ -1,6 +1,6 @@
 from feedly.feed_managers.base import Feedly
-from pinterest_example.core.models import Follow
-from pinterest_example.core.pin_feed import AggregatedPinFeed, PinFeed, \
+from core.models import Follow
+from core.pin_feed import AggregatedPinFeed, PinFeed, \
     UserPinFeed
 
 

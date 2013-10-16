@@ -1,7 +1,7 @@
 from core.models import Follow, Pin
 from django import forms
-from pinterest_example.core.pin_feedly import feedly
-from pinterest_example.core.models import Board
+from core.pin_feedly import feedly
+from core.models import Board
 from django.template.defaultfilters import slugify
 
 

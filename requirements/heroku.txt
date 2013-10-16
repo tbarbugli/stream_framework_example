@@ -1,0 +1,4 @@
+# first release that does not require useless distribute update
+git+https://github.com/datastax/python-driver@1.0.0b5#egg=cassandra-driver
+django-toolbelt
+dj-database-url

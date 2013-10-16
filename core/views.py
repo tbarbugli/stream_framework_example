@@ -6,8 +6,8 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render_to_response
 from django.template.context import RequestContext
-from pinterest_example.core.models import Pin
-from pinterest_example.core.pin_feedly import feedly
+from core.models import Pin
+from core.pin_feedly import feedly
 import json
 
 
