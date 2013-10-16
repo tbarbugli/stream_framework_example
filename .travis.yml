@@ -1,0 +1,15 @@
+language: python
+python:
+  - 2.7
+notifications:
+  email:
+    - tbarbugli@gmail.com
+    - guyon@fashiolista.com
+    - thierryschellenbach@gmail.com
+services:
+  - redis
+install:
+  - easy_install -U distribute
+  - pip install -r requirements/testing.txt --use-mirrors -I
+script:
+  - python manage.py test core
