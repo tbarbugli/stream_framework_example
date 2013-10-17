@@ -151,7 +151,7 @@ LOGGING = {
     },
     'handlers': {
         'console': {
-            'level': 'DEBUG',
+            'level': 'WARNING',
             'class': 'logging.StreamHandler',
             'formatter': 'simple'
         },
@@ -159,12 +159,12 @@ LOGGING = {
     'loggers': {
         'feedly': {
             'handlers': ['console'],
-            'level': 'DEBUG',
+            'level': 'WARNING',
             'filters': []
         },
         'redis': {
             'handlers': ['console'],
-            'level': 'DEBUG',
+            'level': 'WARNING',
             'filters': []
         },
         '': {

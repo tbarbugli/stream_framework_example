@@ -180,11 +180,7 @@ class BenchmarkTest(BaseTestCase):
             activity.actor_id = x
             activity.object_id = x
             activities.append(activity)
-
-        print 'running on %s' % settings.FEEDLY_CASSANDRA_HOSTS
-        print 'inserting the many'
         aggregated.insert_activities(activities)
-        print 'done, took %s' % t.next()
 
         for activity in activities:
             aggregated.add_many([activity], trim=False)
