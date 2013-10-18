@@ -1,5 +1,5 @@
 django==1.5.1
-git+https://github.com/tschellenbach/Feedly@v0.8.134#feedly==0.8.134
+feedly==0.8.134
 redis
 south
 PIL
