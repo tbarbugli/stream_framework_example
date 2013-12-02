@@ -1,5 +1,5 @@
 django==1.5.1
-feedly==0.9.1
+feedly==0.9.31
 redis
 south
 PIL
