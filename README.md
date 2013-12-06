@@ -1,3 +1,5 @@
+[![Requirements Status](https://requires.io/github/tbarbugli/feedly_pin/requirements.png?branch=master)](https://requires.io/github/tbarbugli/feedly_pin/requirements/?branch=master)
+
 This example Django app shows you how you can use Feedly to built a site similar to Pinterest.
 Using Feedly you can built a wide variety of functionality.
 For instance:

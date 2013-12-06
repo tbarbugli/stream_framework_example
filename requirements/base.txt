@@ -1,5 +1,5 @@
-django==1.5.1
-feedly==0.9.31
+README.mddjango==1.5.5
+feedly==0.9.32
 redis
 south
 PIL
