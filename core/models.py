@@ -54,7 +54,7 @@ class Pin(BaseModel):
 class Follow(BaseModel):
 
     '''
-    Simpel mapping between a user and who to follow
+    Simple mapping between a user and who to follow
     '''
     user = models.ForeignKey(
         settings.AUTH_USER_MODEL, related_name='following_set')
