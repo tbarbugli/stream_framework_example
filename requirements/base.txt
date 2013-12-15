@@ -1,4 +1,4 @@
-README.mddjango==1.5.5
+django==1.5.5
 feedly==0.9.32
 redis
 south
