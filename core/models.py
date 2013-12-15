@@ -54,7 +54,9 @@ class Pin(BaseModel):
 class Follow(BaseModel):
 
     '''
-    Simple mapping between a user and who to follow
+    A simple table mapping who a user is following. 
+    For example, if user is Kyle and Kyle is following Alex,
+    the target would be Alex.
     '''
     user = models.ForeignKey(
         settings.AUTH_USER_MODEL, related_name='following_set')
