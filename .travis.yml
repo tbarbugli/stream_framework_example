@@ -10,6 +10,6 @@ services:
   - redis
 install:
   - easy_install -U distribute
-  - pip install -r requirements/testing.txt --use-mirrors -I --pre
+  - pip install -r requirements/testing.txt --allow-external
 script:
   - python manage.py test core
