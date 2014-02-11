@@ -10,6 +10,6 @@ services:
   - redis
 install:
   - easy_install -U distribute
-  - pip install -r requirements/testing.txt --process-dependency-links
+  - pip install -r requirements/testing.txt --process-dependency-links --allow-unverified PIL --allow-external PIL
 script:
   - python manage.py test core
