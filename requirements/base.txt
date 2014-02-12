@@ -2,6 +2,6 @@ django==1.5.5
 feedly==0.9.34
 redis
 south
-PIL
+pillow
 django-celery
 django_compressor
