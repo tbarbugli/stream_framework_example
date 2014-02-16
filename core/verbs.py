@@ -5,6 +5,6 @@ from feedly.verbs.base import Verb
 class Pin(Verb):
     id = 5
     infinitive = 'pin'
-    past_tence = 'pinned'
+    past_tense = 'pinned'
 
 register(Pin)
