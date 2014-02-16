@@ -1,5 +1,5 @@
 django==1.5.5
-feedly
+git+https://github.com/tschellenbach/Feedly.git#egg=feedly
 redis
 south
 pillow
