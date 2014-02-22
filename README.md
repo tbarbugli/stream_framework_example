@@ -21,3 +21,6 @@ to run the following commands to enable redis and to install compass:
 heroku config:add BUILDPACK_URL=https://github.com/ddollar/heroku-buildpack-multi.git
 heroku addons:add redistogo
 ```
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/tbarbugli/feedly_pin/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
