@@ -1,5 +1,5 @@
-from feedly.verbs import register
-from feedly.verbs.base import Verb
+from stream_framework.verbs import register
+from stream_framework.verbs.base import Verb
 
 
 class Pin(Verb):

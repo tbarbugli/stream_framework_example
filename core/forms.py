@@ -1,6 +1,6 @@
 from core.models import Follow, Pin
 from django import forms
-from core.pin_feedly import feedly
+from core.feed_managers import manager
 from core.models import Board
 from django.template.defaultfilters import slugify
 
@@ -21,7 +21,7 @@ class PinForm(forms.ModelForm):
             pins = Pin.objects.filter(
                 user=user, item=self.cleaned_data['item'])
             for pin in pins:
-                feedly.remove_pin(pin)
+                manager.remove_pin(pin)
                 pin.delete()
             return
 
@@ -35,8 +35,8 @@ class PinForm(forms.ModelForm):
         pin.board = board
         pin.save()
 
-        # forward the pin to feedly
-        feedly.add_pin(pin)
+        # forward the pin to manager
+        manager.add_pin(pin)
         return pin
 
 
@@ -53,10 +53,10 @@ class FollowForm(forms.Form):
         if remove:
             follows = Follow.objects.filter(user=user, target=target)
             for follow in follows:
-                feedly.unfollow_user(follow.user_id, follow.target_id)
+                manager.unfollow_user(follow.user_id, follow.target_id)
                 follow.delete()
             return
 
         follow = Follow.objects.create(user_id=user, target_id=target)
-        feedly.follow_user(follow.user_id, follow.target_id)
+        manager.follow_user(follow.user_id, follow.target_id)
         return follow

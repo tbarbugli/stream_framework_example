@@ -7,7 +7,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render_to_response
 from django.template.context import RequestContext
 from core.models import Pin
-from core.pin_feedly import feedly
+from core.feed_managers import manager
 import json
 
 
@@ -34,7 +34,7 @@ def feed(request):
     Items pinned by the people you follow
     '''
     context = RequestContext(request)
-    feed = feedly.get_feeds(request.user.id)['normal']
+    feed = manager.get_feeds(request.user.id)['normal']
     if request.REQUEST.get('delete'):
         feed.delete()
     activities = list(feed[:25])
@@ -51,7 +51,7 @@ def aggregated_feed(request):
     Items pinned by the people you follow
     '''
     context = RequestContext(request)
-    feed = feedly.get_feeds(request.user.id)['aggregated']
+    feed = manager.get_feeds(request.user.id)['aggregated']
     if request.REQUEST.get('delete'):
         feed.delete()
     activities = list(feed[:25])
@@ -67,7 +67,7 @@ def profile(request, username):
     Shows the users profile
     '''
     profile_user = get_user_model().objects.get(username=username)
-    feed = feedly.get_user_feed(profile_user.id)
+    feed = manager.get_user_feed(profile_user.id)
     if request.REQUEST.get('delete'):
         feed.delete()
     activities = list(feed[:25])

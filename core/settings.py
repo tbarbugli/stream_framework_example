@@ -17,7 +17,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 # on Heroku redis connection parameters come from environment variables
 redis_url = urlparse.urlparse(os.environ.get('REDISTOGO_URL', 'redis://localhost:6379'))
 
-FEEDLY_REDIS_CONFIG = {
+STREAM_REDIS_CONFIG = {
     'default': {
         'host': redis_url.hostname,
         'port': redis_url.port,
@@ -157,7 +157,7 @@ LOGGING = {
         },
     },
     'loggers': {
-        'feedly': {
+        'stream_framework': {
             'handlers': ['console'],
             'level': 'WARNING',
             'filters': []

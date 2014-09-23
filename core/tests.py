@@ -5,12 +5,12 @@ from django.contrib.auth import get_user_model
 from django.core.urlresolvers import reverse
 from django.test.client import Client
 from django.test.testcases import TestCase
-from core.pin_feedly import feedly
+from core.feed_managers import manager
 import json
 import os
 import logging
 import copy
-from feedly.utils.timing import timer
+from stream_framework.utils.timing import timer
 
 
 logger = logging.getLogger(__name__)
@@ -33,9 +33,9 @@ class BaseTestCase(TestCase):
             username='bogus2')
         # start by resetting the feeds
         for u in [self.bogus_user, self.bogus_user2]:
-            user_feed = feedly.get_user_feed(u.id)
+            user_feed = manager.get_user_feed(u.id)
             user_feed.delete()
-            for name, feed in feedly.get_feeds(u.id).items():
+            for name, feed in manager.get_feeds(u.id).items():
                 feed.delete()
 
         # login the user
@@ -164,13 +164,13 @@ class BenchmarkTest(BaseTestCase):
         pins = list(Pin.objects.filter(user=admin_user_id)[:3])
         activities = [p.create_activity() for p in pins]
         # try a batch import
-        feedly.batch_import(admin_user_id, activities, 10)
+        manager.batch_import(admin_user_id, activities, 10)
 
     def test_aggregated_add_many(self):
         # setup the pins and activity chunk
         t = timer()
         admin_user_id = 1
-        aggregated = feedly.get_feeds(admin_user_id)['aggregated']
+        aggregated = manager.get_feeds(admin_user_id)['aggregated']
         pins = list(Pin.objects.filter(user=admin_user_id)[:3])
         activities = []
         base_activity = pins[0].create_activity()
@@ -190,7 +190,7 @@ class BenchmarkTest(BaseTestCase):
         print 'popular user fanout would take %s seconds' % popular_user_time
 
 
-class FeedlyViewTest(BaseTestCase):
+class StreamViewTest(BaseTestCase):
 
     def pin_in_feed(self, pin, auth_client):
         # this should be in the feed of bogus2

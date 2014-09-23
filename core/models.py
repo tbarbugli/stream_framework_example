@@ -38,7 +38,7 @@ class Pin(BaseModel):
     created_at = models.DateTimeField(auto_now_add=True)
 
     def create_activity(self):
-        from feedly.activity import Activity
+        from stream_framework.activity import Activity
         from core.verbs import Pin as PinVerb
         activity = Activity(
             self.user_id,
