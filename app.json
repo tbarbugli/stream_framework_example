@@ -1,0 +1,19 @@
+{
+  "name": "Stream Framework Example",
+  "description": "Pinterest esque example app using Stream Framework.",
+  "keywords": [
+    "stream-framework",
+    "HTML5",
+    "python"
+  ],
+  "website": "https://getstream.io/",
+  "repository": "https://github.com/tbarbugli/stream_framework_example",
+  "logo": "http://33.media.tumblr.com/avatar_be8b5eef9ae6_128.png",
+  "success_url": "/",
+  "env": {
+    "BUILDPACK_URL": "https://github.com/ddollar/heroku-buildpack-multi.git"
+  },
+  "addons": [
+    "redistogo"
+  ]
+}
