@@ -1,5 +1,5 @@
 django==1.5.5
-git+https://github.com/tschellenbach/Feedly.git#egg=feedly
+git+https://github.com/tschellenbach/Stream-Framework.git#egg=stream_framework
 redis
 south
 pillow
