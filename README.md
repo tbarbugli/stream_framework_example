@@ -9,4 +9,14 @@ For instance:
 
 But in this example we're showing you how to built a feed with activity from people you follow.
 
+This project comes with Docker and Docker Compose and you can run the app locally by running:
+
+`docker-compose up -d`
+
+to test you can head to:
+
+`http://localhost:8000`
+
+Or alternatively:
+
 [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
