@@ -9,3 +9,4 @@ local_settings.py
 pinterest_example/static/CACHE/
 .sass-cache
 .coverage
+.idea
