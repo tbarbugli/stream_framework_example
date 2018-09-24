@@ -1,6 +1,6 @@
 FROM python:2.7-alpine
 
-ENV PIPENV_VENV_IN_PROJECT=true LIBRARY_PATH=/lib:/usr/lib
+ENV LIBRARY_PATH=/lib:/usr/lib
 
 RUN apk add --no-cache --repository http://dl-3.alpinelinux.org/alpine/edge/testing/ \
     git zlib-dev jpeg-dev gcc musl-dev postgresql-dev py2-anyjson ruby-bundler py2-pip libjpeg curl && \
