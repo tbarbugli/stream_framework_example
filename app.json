@@ -11,7 +11,7 @@
   "logo": "http://33.media.tumblr.com/avatar_be8b5eef9ae6_128.png",
   "success_url": "/",
   "env": {
-    "BUILDPACK_URL": "https://github.com/ddollar/heroku-buildpack-multi.git"
+    "BUILDPACK_URL": "https://github.com/heroku/heroku-buildpack-multi.git"
   },
   "addons": [
     "redistogo"
